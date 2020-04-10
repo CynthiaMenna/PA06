@@ -42,7 +42,9 @@ def hangman():
 		state['guesses'] += [letter]
 		return render_template('play.html',state=state)
 
-
+@app.route('/about')
+def about():
+    return render_template("about.html")
 
 
 if __name__ == '__main__':
