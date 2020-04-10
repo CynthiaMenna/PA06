@@ -18,8 +18,6 @@ def generate_random_word():
         print(" _ ",end ="")
     return chosen_word
 
-generate_random_word()
-
 
 
 def print_word(word, guessed_letters):
@@ -84,4 +82,3 @@ def play_hangman():
 
 if __name__ == '__main__':
     play_hangman()
-    
