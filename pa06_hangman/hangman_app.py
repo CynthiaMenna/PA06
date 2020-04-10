@@ -36,7 +36,7 @@ def play_hangman():
         guessed_letters = []
         guesses_left = 10
         word = generate_random_word()
-        letter = input("Guess a letter:")
+        letter = input("\nGuess a letter:\n")
         length = len(word)
 
 
@@ -45,12 +45,17 @@ def play_hangman():
             if len(letter)>=2 or len(letter)==0:
                 guesses_left=guesses_left - 1
                 print("Please enter a single letter")
+                print(guessed_letters)
+                print(guesses_left)
+
 
 
             elif letter in guessed_letters:  #letter has already been guessed
                 guesses_left = guesses_left - 1
                 print("You already guessed that letter.")
                 print_word(word, guessed_letters)
+                print(guessed_letters)
+                print(guesses_left)
 
 
             elif letter not in word:  #letter is not in the word
@@ -58,6 +63,8 @@ def play_hangman():
                 print("The letter you guessed is not in the word.")
                 guesses_left = guesses_left - 1
                 print_word(word,guessed_letters)
+                print(guessed_letters)
+                print(guesses_left)
 
 
             else:
@@ -65,6 +72,8 @@ def play_hangman():
                 length = length-1 #number of letters left unguessed
                 print("The letter is in the word.")
                 print_word(word, guessed_letters)
+                print(guessed_letters)
+                print(guesses_left)
 
 
             if length == 0:  #there are no more letters left to guess
