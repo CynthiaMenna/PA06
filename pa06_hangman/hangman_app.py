@@ -32,7 +32,7 @@ def play_hangman():
 
     want_to_play = input("Do you want to play hangman? Y/N? ")
 
-    while want_to_play == "Y":
+    while want_to_play == "Y" or want_to_play == "y":
         guessed_letters = []
         guesses_left = 10
         word = generate_random_word()
