@@ -19,7 +19,7 @@ def generate_random_word():
     return chosen_word
 
 
-def print_word(state['word'], state['guesses']):
+def print_word(state):
     for x in state['word']:
         if x in state['guesses']:
             print(x, end =""),

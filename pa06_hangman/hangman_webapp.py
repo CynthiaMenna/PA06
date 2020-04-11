@@ -23,7 +23,7 @@ def play():
     global state
     state['word']=hangman_methods.generate_random_word()
     state['guesses'] = []
-    word_so_far = hangman_methods.print_word(state['word'],state['guesses'])
+    word_so_far = hangman_methods.print_word(state)
     state['word_so_far'] = word_so_far
     print(state)
     return render_template("start.html",state=state)
