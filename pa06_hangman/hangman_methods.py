@@ -18,9 +18,6 @@ def generate_random_word():
         print(" _ ",end ="")
     return chosen_word
 
-def get_words_so_far():
-    for x in state['word']:
-        print(" _ ",end ="")
 
 def print_word(state['word'], state['guesses']):
     for x in state['word']:
