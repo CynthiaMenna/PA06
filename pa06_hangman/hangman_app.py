@@ -19,7 +19,6 @@ def generate_random_word():
     return chosen_word
 
 
-
 def print_word(word, guessed_letters):
     for x in word:
         if x in guessed_letters:
