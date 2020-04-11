@@ -21,8 +21,11 @@ def main():
 @app.route('/start')
 def play():
 	global state
-	state['word']=hangman_app.generate_random_word()
+	state['word']=hangman_methods.generate_random_word()
 	state['guesses'] = []
+    words_so_far = hangman_methods.get_words_so_far(state['word'])
+    state['words_so_far'] = words_so_far
+    print(state)
 	return render_template("start.html",state=state)
 
 
