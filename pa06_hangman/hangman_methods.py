@@ -15,16 +15,18 @@ def generate_random_word():
     words = "pencil dog house computer appreciate tablet cup glass globe monitor textbook binder feather coil meditation clip photograph frame".split()
     chosen_word = random.choice(words)
     for x in chosen_word:
-        print(" _ ",end ="")
+        print("_",end="")
     return chosen_word
 
-
 def print_word(state):
+    dotted = []
     for x in state['word']:
         if x in state['guesses']:
-            print(x, end =""),
+            dotted.append(x)
         else:
-            print(" _ ", end=""),
+            dotted.append(" _ ")
+    dotted = "".join(dotted)
+    return dotted
 
 
 def play_hangman():
