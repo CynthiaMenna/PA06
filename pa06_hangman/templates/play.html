@@ -16,11 +16,11 @@
    {{x}}
   {% endfor %}
 
-  {% if letter in state['guesses'] %}
+  {% if letter in guesses %}
     <p>You already guessed that</p>
     <p>please guess again.</p>
 
-  {% elif letter in state['word'] %}
+  {% elif letter in guesses %}
     <p> Yay! The letter is in the word.</p>
   {% endif %}
 
@@ -28,7 +28,7 @@
       done = True
       <p>You won!</p>
 
-  {% elif letter not in state['word'] %}
+  {% elif letter not in guesses %}
     <p>that letter is not in the word. try again. </p>
   {% endif %}
 

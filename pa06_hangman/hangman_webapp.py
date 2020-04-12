@@ -38,6 +38,9 @@ def hangman():
 
     elif request.method == 'POST':
         letter = request.form['guess']
+        guesses = []
+        guesses.append(letter)
+        guesses= "".join(guesses)
         length =len(state['word'])
         if letter in state['guesses']: # check if letter has already been guessed
             print("you already guessed that.")
