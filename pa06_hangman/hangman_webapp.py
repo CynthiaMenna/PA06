@@ -31,20 +31,26 @@ def play():
 
 @app.route('/play',methods=['GET','POST'])
 def hangman():
-	""" plays hangman game """
-	global state
-	if request.method == 'GET':
-		return play()
+    """ plays hangman game """
+    global state
+    if request.method =='GET':
+        return play()
 
-	elif request.method == 'POST':
-		letter = request.form['guess']
-		# check if letter has already been guessed
-		# and generate a response to guess again
-		# else check if letter is in word
-		# then see if the word is complete
-		# if letter not in word, then tell them
-		state['guesses'] += [letter]
-		return render_template('play.html',state=state)
+    elif request.method == 'POST':
+        letter = request.form['guess']
+        length =len(state['word'])
+        if letter in state['guesses']: # check if letter has already been guessed
+            print("you already guessed that.")
+            print("please guess again.") # and generate a response to guess again
+        elif letter in state['word']: # else check if letter is in word
+            print("Yay! The letter is in the word.")
+        if length == 0: # then see if the word is complete
+            done = True
+            print('you won!')
+        elif letter not in state['word']: # if letter not in word, then tell them
+            print("that letter is not in the word. try again.")
+        state['guesses'] += [letter]
+        return render_template('play.html',state=state)
 
 @app.route('/about')
 def about():

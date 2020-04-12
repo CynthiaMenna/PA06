@@ -16,4 +16,20 @@
    {{x}}
   {% endfor %}
 
+  {% if letter in state['guesses'] %}
+    <p>You already guessed that</p>
+    <p>please guess again.</p>
+
+  {% elif letter in state['word'] %}
+    <p> Yay! The letter is in the word.</p>
+  {% endif %}
+
+  {% if length == 0 %}
+      done = True
+      <p>You won!</p>
+
+  {% elif letter not in state['word'] %}
+    <p>that letter is not in the word. try again. </p>
+  {% endif %}
+
 {% endblock %}
