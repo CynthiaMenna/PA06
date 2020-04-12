@@ -11,25 +11,25 @@
     <br>
     <input type="submit" class="btn btn-lg btn-danger">
   </form>
-  <p>Here are the letters you've guessed already</p>
+  <p>Here are the letters you've guessed already:</p>
   {% for x in state['guesses'] %}
    {{x}}
   {% endfor %}
 
   {% if letter in guesses %}
-    <p>You already guessed that</p>
-    <p>please guess again.</p>
+    <p>You already guessed that letter.</p>
+    <p>Please guess again.</p>
 
-  {% elif letter in guesses %}
+  {% elif letter not in guesses %}
+    <p>That letter is not in the word. Try again. </p>
+
+  {% elif letter in word %}
     <p> Yay! The letter is in the word.</p>
   {% endif %}
 
   {% if length == 0 %}
-      done = True
       <p>You won!</p>
-
-  {% elif letter not in guesses %}
-    <p>that letter is not in the word. try again. </p>
   {% endif %}
+
 
 {% endblock %}

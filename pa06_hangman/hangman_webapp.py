@@ -48,7 +48,6 @@ def hangman():
         elif letter in state['word']: # else check if letter is in word
             print("Yay! The letter is in the word.")
         if length == 0: # then see if the word is complete
-            done = True
             print('you won!')
         elif letter not in state['word']: # if letter not in word, then tell them
             print("that letter is not in the word. try again.")
