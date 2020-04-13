@@ -52,6 +52,7 @@ def hangman():
             print("you already guessed that.")
             print("please guess again.") # and generate a response to guess again
         elif letter in word: # else check if letter is in word
+            length = length - 1
             print("Yay! The letter is in the word.")
         if length == 0: # then see if the word is complete
             won=True
@@ -59,6 +60,8 @@ def hangman():
         elif letter not in word: # if letter not in word, then tell them
             print("that letter is not in the word. try again.")
         state['guesses'] += [letter]
+        word_so_far = hangman_methods.print_word(state)
+        state['word_so_far'] = word_so_far
         return render_template('play.html',
                                 state=state,
                                 letter=letter,

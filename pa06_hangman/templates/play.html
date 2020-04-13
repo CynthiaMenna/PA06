@@ -20,15 +20,16 @@
   {% if letter not in word %}
     <p>That letter is not in the word. Try again. </p>
 
-  {% elif already_guessed %}
+  {% elif already_guessed== true %}
     <p>You already guessed that letter.</p>
     <p>Please guess again.</p>
 
   {% elif letter in word %}
     <p> Yay! The letter is in the word.</p>
-    {% if won==True %}
-      <p>You won!</p>
-    {% endif %}
+  {% endif %}
+
+  {% if won==true %}
+    <p>You won!</p>
   {% endif %}
 
 
