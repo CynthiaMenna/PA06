@@ -16,8 +16,10 @@
    {{x}}
   {% endfor %}
 
+  {% if letter_length == true %}
+   <p>Please only enter one letter.</p>
 
-  {% if letter not in word %}
+  {% elif letter not in word %}
     <p>That letter is not in the word. Try again. </p>
 
   {% elif already_guessed== true %}
@@ -29,7 +31,7 @@
   {% endif %}
 
   {% if won==true %}
-    <p>You won!</p>
+    <font size="20">You won!</font>
   {% endif %}
 
 
