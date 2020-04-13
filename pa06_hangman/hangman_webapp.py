@@ -33,6 +33,8 @@ def play():
 def hangman():
     """ plays hangman game """
     global state
+    word_so_far = hangman_methods.print_word(state)
+    state['word_so_far'] = word_so_far
     if request.method =='GET':
         return play()
 
@@ -50,7 +52,6 @@ def hangman():
             print("you already guessed that.")
             print("please guess again.") # and generate a response to guess again
         elif letter in word: # else check if letter is in word
-            length=length-1
             print("Yay! The letter is in the word.")
         if length == 0: # then see if the word is complete
             won=True
