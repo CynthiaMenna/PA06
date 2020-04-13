@@ -43,12 +43,17 @@ def hangman():
         guesses= "".join(guesses)
         word=state['word']
         length =len(word)
+        already_guessed=False
+        won=False
         if letter in state['guesses']: # check if letter has already been guessed
+            already_guessed=True
             print("you already guessed that.")
             print("please guess again.") # and generate a response to guess again
         elif letter in word: # else check if letter is in word
+            length=length-1
             print("Yay! The letter is in the word.")
         if length == 0: # then see if the word is complete
+            won=True
             print('you won!')
         elif letter not in word: # if letter not in word, then tell them
             print("that letter is not in the word. try again.")
@@ -58,7 +63,9 @@ def hangman():
                                 letter=letter,
                                 length=length,
                                 word=state['word'],
-                                guesses=guesses)
+                                guesses=state['guesses'],
+                                already_guessed=already_guessed,
+                                won=won)
 
 @app.route('/about')
 def about():
